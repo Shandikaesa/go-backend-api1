@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16
+    container_name: postgres-go
+    environment:
+      POSTGRES_USER: sanzdev
+      POSTGRES_PASSWORD: lins123
+      POSTGRES_DB: belajar_go
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - go-network
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sanzdev -d belajar_go"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+
+  app:
+    build: .
+    container_name: go-api
+    ports:
+      - "8081:8080"
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - go-network
+
+
+volumes:
+  postgres_data:
+
+networks:
+  go-network:
+    driver: bridge
+    
