@@ -41,4 +41,6 @@ curl http://localhost:8081/users
 └── scripts/           # Script deploy, backup, health
 
 
-AUTHOR BY : SANZDEV
+### AUTHOR
+
+** SANZDEV ** - [Github](https://github.com/shandikaesa)
