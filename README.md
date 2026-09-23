@@ -43,4 +43,6 @@ curl http://localhost:8081/users
 
 ### AUTHOR
 
-** SANZDEV ** - [Github](https://github.com/shandikaesa)
+** SANZDEV ** 
+- [Github](https://github.com/shandikaesa)
+- ![CI](https://github.com/Shandikaesa/go-backend-api/actions/workflows/ci.yml/badge.svg)
